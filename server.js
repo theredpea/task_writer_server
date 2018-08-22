@@ -12,6 +12,14 @@ var task_writer_server_port = 3000;
 // This makes our code more flexible 
 task_writer_server.use(cors());
 
+task_writer_server.get('/task_writer_server', function(req, res){
+    console.log('received GET request');
+});
+
+task_writer_server.post('/task_writer_server', function(req, res){
+    console.log('received POST request');
+});
+
 // This line "starts" our web-server, so that it's listening for requests
 // The web-server must remain running to listen to requests; run it from your console (i.e. Windows command prompt? Linux bash) 
 // change directories to the place this file is located; in our tutorial that location is:
