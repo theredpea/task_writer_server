@@ -1,5 +1,6 @@
 var express = require('express');
 var cors = require('cors');
+var fs = require('fs');
 
 var task_writer_server = express();
 
@@ -11,6 +12,7 @@ var task_writer_server_port = 3000;
 // It means our Qlik Sense extension might be running from a different URL than our web-server; 
 // This makes our code more flexible 
 task_writer_server.use(cors());
+task_writer_server.use(express.json());
 
 task_writer_server.get('/task_writer_server', function(req, res){
     console.log('received GET request');
@@ -18,6 +20,9 @@ task_writer_server.get('/task_writer_server', function(req, res){
 
 task_writer_server.post('/task_writer_server', function(req, res){
     console.log('received POST request');
+    fs.writeFile("./task_selected_by_id.json", JSON.stringify(req.body), function(err) {
+
+    });
 });
 
 // This line "starts" our web-server, so that it's listening for requests
