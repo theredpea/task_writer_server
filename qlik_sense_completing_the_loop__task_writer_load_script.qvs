@@ -1,4 +1,3 @@
-
 LOAD * INLINE [
 ID	Who	What	How Long
 1	Nate	Design Qlik App	0.5
@@ -9,4 +8,16 @@ ID	Who	What	How Long
 6	Tanner	Peer Review Tutorial	2
 7	Jess	Server-Side Extension	3
 ](delimiter is '\t');
+
+//Inserted using the "Select data" icon on the "task_writer_server"* data connection:
+//* WARNING: Your library will be named something different;
+// while wel chose the name "task_writer_server"
+// Qlik Sense appends a unique suffix to make it unique to the user who created it;
+// In this case; (qtsel_nnd); yours may be different; please change accordingly
+SelectedTasks:
+LOAD
+    ID,
+    Selected
+FROM [lib://task_writer_server (qtsel_nnd)/task_selected_by_id.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
 
