@@ -1,0 +1,12 @@
+
+LOAD * INLINE [
+ID	Who	What	How Long
+1	Nate	Design Qlik App	0.5
+2	Nate	Make Extension	0.5
+3	Nate	Mak	0.5
+4	Daniel	QA App	1
+5	Daniel	QA Server	1
+6	Tanner	Peer Review Tutorial	2
+7	Jess	Server-Side Extension	3
+](delimiter is '\t');
+
